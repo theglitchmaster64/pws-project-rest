@@ -26,7 +26,7 @@ def index():
 
 @app.route('/encrypt',methods=['POST'])
 def encrypt():
-    data = request.data
+    data = request.get_data()
     secret = os.urandom(16)
     uniq = str(uuid4()).replace('-','')
     a = AES(secret_key=secret)
